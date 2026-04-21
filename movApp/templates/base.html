@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Buster</title>
+
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+<div class="container">
+    <div class="logo">
+        <img src="{% static 'images/logo1.png' %}" alt="logo">
+    </div>
+
+
+<div class="social-link">
+{% for link in social_links %}
+<a href="{{ link.url }}" class="{{ link.anchor_class}}">
+    <i class="{{ link.icon_class}}"></i>
+</a>
+
+{% endfor %}
+</div>
+</div>
+</header>
+
+
+{% include "slider.html" %}
+
+{% include "movielist.html" %}
+
+{% include "trailers.html" %}
+
+
+<footer>
+    <div class="container">
+        <p>Website Demo</p>
+    </div>
+</footer>
+
+<<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/plugins2.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+    
+</body>
+</html>
