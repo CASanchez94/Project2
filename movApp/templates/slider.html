@@ -1,0 +1,37 @@
+<div class ="slider movie-items">
+    <div class="container">
+        <div class ="social-link">
+            <p>Follow us:</p>
+            {% for link in social_links %}
+
+            <a href="{{ link.url }}">
+                <i class="{{ link.icon_class}}"></i>
+            </a>
+            {% endfor %}
+        </div>
+
+<div class="slick-multiItemSlider">
+    {% for movie in sliders %}
+
+    <div class="movie-item">
+        <div class="mv-img">
+            <img src ="{{ movie.image.url }}" width="255" height="437">
+        </div>
+    
+        <div class="title-in">
+    <span>{{ movie.genre }}</span>
+    <h6>{{ movie.title }}</h6>
+    
+    <p>
+        <i class="ion-android-star"></i>
+        {{ movie.rating }}/10
+    </p>
+    
+    </div>
+</div>
+
+{% endfor %}
+
+        </div>
+    </div>
+</div>
