@@ -1,9 +1,17 @@
 from django.shortcuts import render
-from .models import Slider
-from django.http import HttpResponse
+from .models import Slider, Advertisment, SocialLink, Trailer
+
 
 def index(request):
-    sliders = Slider.objects.all()
-    return render(request, "index.html", {
-        "sliders": sliders,
-    })
+    context = {
+    "sliders": Slider.objects.all(),
+    "advertisments": Advertisment.objects.all(),
+    "social_links": SocialLink.objects.all(),
+    "trailers":  Trailer.objects.all()
+    
+    
+
+
+    }
+    return render(request, "index.html", context)
+        

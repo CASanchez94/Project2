@@ -19,3 +19,27 @@ class Slider(models.Model):
 
     def __str__(self):
         return self.movie_title
+    
+class Advertisment(models.Model):
+    section = models.CharField(max_length=20)
+    img_src = models.ImageField(upload_to="ads/")
+    img_width = models.IntegerField()
+    img_height = models.IntegerField()
+
+    def __str__(self):
+        return self.section
+
+class SocialLink(models.Model):
+    name = models.CharField(max_length=50)
+    anchor_class = models.CharField(max_length=2, blank="True")
+    icon_class = models.CharField(max_length=30)
+    url = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+class Trailer(models.Model):
+    trailer_url = models.URLField()
+
+    def __str__(self):
+        return self.trailer_url

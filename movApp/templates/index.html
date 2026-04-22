@@ -230,10 +230,11 @@
 			<div class="social-link">
 				<p>Follow us: </p>
 				<!-- DB -->
-				<a href="#"><i class="ion-social-facebook"></i></a>
-				<a href="#"><i class="ion-social-twitter"></i></a>
-				<a href="#"><i class="ion-social-googleplus"></i></a>
-				<a href="#"><i class="ion-social-youtube"></i></a>
+				{% for link in social_links %}
+				<a href="{{ link.url }}" target="_blank">
+					<i class="{{ link.icon_class }}"></i>
+				</a>
+				{% endfor %}
 			</div>
 
 <div class="slick-multiItemSlider">
@@ -1000,9 +1001,11 @@
 				<div class="videos">
 				 	<div class="slider-for-2 video-ft">
 						<!-- DB -->
+						 {% for trailer in trailers %}
 				 		<div>
-					    	<iframe class="item-video" src="#" data-src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
+					    	<iframe class="item-video" src="#" data-src="{{ trailer.trailer_URL }}" allowfullscreen></iframe>
 					    </div>
+						{% endfor %}
 				
 						
 					</div>
