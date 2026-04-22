@@ -31,7 +31,7 @@ class Advertisment(models.Model):
 
 class SocialLink(models.Model):
     name = models.CharField(max_length=50)
-    anchor_class = models.CharField(max_length=2, blank="True")
+    anchor_class = models.CharField(max_length=2, blank=True)
     icon_class = models.CharField(max_length=30)
     url = models.URLField()
 
@@ -43,3 +43,14 @@ class Trailer(models.Model):
 
     def __str__(self):
         return self.trailer_url
+
+class TrailerItem(models.Model):
+    img_src = models.ImageField(upload_to="trailers/")
+    img_alt = models.CharField(max_length=100)
+    img_width = models.PositiveIntegerField(default=255)
+    img_height = models.PositiveIntegerField(default=170)
+    description = models.CharField(max_length=100)
+    duration = models.CharField(max_length=10)
+    
+    def __str__(self):
+        return self.description

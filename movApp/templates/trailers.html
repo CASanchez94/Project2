@@ -1,0 +1,49 @@
+<div class="trailers">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-12">
+
+                <div class="title-hd">
+                    <h2>in theater</h2>
+                    <a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+                </div>
+
+                <div class="videos">
+
+                    <div class="slider-for-2 video-ft">
+                        {% for trailer in trailers %}
+                        <div>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/1Q8fG0TtVAY?si=7M3fgSirKhcEFKso"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="slider-nav-2 thumb-ft">
+
+                        {% for trailer in trailer_items %}
+                        <div class="item">
+                            <div class="trailer-img">
+                                <img src="{{ trailer.img_src.url }}"
+                                     alt="{{ trailer.img_alt }}"
+                                     width="{{ trailer.img_width }}"
+                                     height="{{ trailer.img_height }}">
+                            </div>
+
+                            <div class="trailer-infor">
+                                <h4 class="desc">{{ trailer.description }}</h4>
+                                <p>{{ trailer.duration }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

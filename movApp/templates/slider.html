@@ -1,37 +1,46 @@
-<div class ="slider movie-items">
+<div class="slider movie-items">
     <div class="container">
-        <div class ="social-link">
-            <p>Follow us:</p>
-            {% for link in social_links %}
+        <div class="row">
+            <div class="social-link">
+                <p>Follow us:</p>
+                {% for link in social_links %}
+                <a href="{{ link.url }}" target="_blank">
+                    <i class="{{ link.icon_class }}"></i>
+                </a>
+                {% endfor %}
+            </div>
 
-            <a href="{{ link.url }}">
-                <i class="{{ link.icon_class}}"></i>
-            </a>
-            {% endfor %}
-        </div>
+            <div class="slick-multiItemSlider">
+                {% for slider in sliders %}
+                <div class="movie-item">
+                    <div class="mv-img">
+                        <a href="{{ slider.anchor_url }}">
+                            <img src="{{ slider.image_src.url }}" alt="{{ slider.movie_title }}"
+                                width="{{ slider.image_width }}" height="{{ slider.image_height }}">
+                        </a>
+                    </div>
 
-<div class="slick-multiItemSlider">
-    {% for movie in sliders %}
+                    <div class="title-in">
+                        <div class="cate">
+                            {% for genre in slider.genres.all %}
+                            <span class="{{ genre.color }}">
+                                <a href="#">{{ genre.name }}</a>
+                            </span>
+                            {% endfor %}
+                        </div>
 
-    <div class="movie-item">
-        <div class="mv-img">
-            <img src ="{{ movie.image.url }}" width="255" height="437">
-        </div>
-    
-        <div class="title-in">
-    <span>{{ movie.genre }}</span>
-    <h6>{{ movie.title }}</h6>
-    
-    <p>
-        <i class="ion-android-star"></i>
-        {{ movie.rating }}/10
-    </p>
-    
-    </div>
-</div>
+                        <h6>
+                            <a href="{{ slider.anchor_url }}">{{ slider.movie_title }}</a>
+                        </h6>
 
-{% endfor %}
-
+                        <p>
+                            <i class="ion-android-star"></i>
+                            <span>{{ slider.lower_rating }}</span> / {{ slider.upper_rating }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
