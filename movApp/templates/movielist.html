@@ -1,0 +1,126 @@
+<div class="movie-items">
+    <div class="container">
+        <div class="row ipad-width">
+
+            <div class="col-md-8">
+                <div class="title-hd">
+                    <h2>in theater</h2>
+                    <a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+                </div>
+
+                <div class="tabs">
+                    <ul class="tab-links">
+                        <li class="active"><a href="#tab1">#Popular</a></li>
+                        <li><a href="#tab2">#Coming soon</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab1" class="tab active">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    <!-- DB -->
+                                    <!-- your movie items go here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab2" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    <!-- DB -->
+                                    <!-- your coming soon items go here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title-hd">
+                    <h2>on tv</h2>
+                    <a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+                </div>
+
+                <div class="tabs">
+                    <ul class="tab-links-2">
+                        <li><a href="#tab21">#Popular</a></li>
+                        <li class="active"><a href="#tab22">#Coming soon</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab21" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    <!-- DB -->
+                                    <!-- on tv popular items -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab22" class="tab active">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    <!-- DB -->
+                                    <!-- on tv coming soon items -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <div class="ads">
+                        <!-- DB -->
+                        {% if sidebar_ad %}
+                        <img src="{{ sidebar_ad.img_src.url }}"
+                             alt="advertisement"
+                             width="{{ sidebar_ad.img_width }}"
+                             height="{{ sidebar_ad.img_height }}">
+                        {% endif %}
+                    </div>
+
+                    <div class="celebrities">
+                        <h4 class="sb-title">Spotlight Celebrities</h4>
+
+                        <!-- DB -->
+                        <div class="celeb-item">
+                            <a href="#"><img src="images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
+                            <div class="celeb-author">
+                                <h6><a href="#">Samuel N. Jack</a></h6>
+                                <span>Actor</span>
+                            </div>
+                        </div>
+
+                        <div class="celeb-item">
+                            <a href="#"><img src="images/uploads/ava2.jpg" alt="" width="70" height="70"></a>
+                            <div class="celeb-author">
+                                <h6><a href="#">Benjamin Carroll</a></h6>
+                                <span>Actor</span>
+                            </div>
+                        </div>
+
+                        <div class="celeb-item">
+                            <a href="#"><img src="images/uploads/ava3.jpg" alt="" width="70" height="70"></a>
+                            <div class="celeb-author">
+                                <h6><a href="#">Beverly Griffin</a></h6>
+                                <span>Actor</span>
+                            </div>
+                        </div>
+
+                        <div class="celeb-item">
+                            <a href="#"><img src="images/uploads/ava4.jpg" alt="" width="70" height="70"></a>
+                            <div class="celeb-author">
+                                <h6><a href="#">Justin Weaver</a></h6>
+                                <span>Actor</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn">See all celebrities<i class="ion-ios-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
