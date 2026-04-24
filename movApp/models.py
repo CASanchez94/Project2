@@ -54,3 +54,61 @@ class TrailerItem(models.Model):
     
     def __str__(self):
         return self.description
+
+class Celebrity(models.Model):
+    anchor_url = models.CharField(max_length=200)
+    img_width = models.IntegerField()
+    img_height = models.IntegerField()
+    celebrity_url = models.CharField(max_length=200)
+    celebrity_name = models.CharField(max_length=50)
+    celebrity_type = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.celebrity_name
+
+class News(models.Model):
+    section = models.CharField(max_length=20)
+    img_src = models.CharField(max_length=200)
+    img_alt = models.CharField(max_length=100)
+    img_width = models.IntegerField()
+    img_height = models.IntegerField()
+    title = models.CharField(max_length=100)
+    content = models.CharField(max_length=500)
+    time = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+class Tweet(models.Model):
+    content = models.CharField(max_length=280)
+
+    def __str__(self):
+        return self.content[:50]
+
+class MovieTheater(models.Model):
+    type = models.CharField(max_length=20)
+    img_src = models.CharField(max_length=200)
+    img_width = models.IntegerField()
+    img_height = models.IntegerField()
+    anchor_url = models.CharField(max_length=200)
+    movie_genre = models.CharField(max_length=10)
+    movie_title = models.CharField(max_length=20)
+    lower_rating = models.CharField(max_length=5)
+    upper_rating = models.CharField(max_length=5)
+
+    def __str__(self):
+        return self.movie_title
+
+class MovieTV(models.Model):
+    type = models.CharField(max_length=20)
+    img_src = models.CharField(max_length=200)
+    img_width = models.IntegerField()
+    img_height = models.IntegerField()
+    anchor_url = models.CharField(max_length=200)
+    movie_genre = models.CharField(max_length=10)
+    movie_title = models.CharField(max_length=20)
+    lower_rating = models.CharField(max_length=5)
+    upper_rating = models.CharField(max_length=5)
+
+    def __str__(self):
+        return self.movie_title
