@@ -20,3 +20,12 @@ def index(request):
 
     }
     return render(request, "index.html", context)
+
+def movielist(request):
+    context = {
+        "theater_movies": MovieTheater.objects.all(),
+        "tv_movies": MovieTV.objects.all(),
+        "sidebar_ad": Advertisment.objects.filter(section="sidebar").first(),
+        "celebrities": Celebrity.objects.all(),
+    }
+    return render(request, "movielist.html", context)

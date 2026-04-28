@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+
+{% block content %}
 <div class="movie-items">
     <div class="container">
         <div class="row ipad-width">
@@ -18,21 +22,27 @@
                         <div id="tab1" class="tab active">
                             <div class="row">
                                 <div class="slick-multiItem">
-                                    <!-- DB -->
-                                    <div class="slide-it">
-                                        <div class="movie-item">
-                                            <div class="mv-img">
-                                                <img src="images/uploads/mv-item1.jpg" alt="" width="185" height="284">
-                                            </div>
-                                            <div class="hvr-inner">
-                                                <a href="#"> Read more <i class="ion-android-arrow-dropright"></i></a>
-                                            </div>
-                                            <div class="title-in">
-                                                <h6><a href="#">Interstellar</a></h6>
-                                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                    {% for movie in theater_movies %}
+                                        {% if movie.type == "popular" %}
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="images/uploads/mv-item1.jpg" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="#"> Read more <i class="ion-android-arrow-dropright"></i></a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">{{ movie.movie_title }}</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>{{ movie.lower_rating }}</span> /{{ movie.upper_rating }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        {% endif %}
+                                    {% empty %}
+                                    <p>No popular movies available.</p>
+                                    {% endfor %}
+
                                 </div>
                             </div>
                         </div>
@@ -41,20 +51,26 @@
                             <div class="row">
                                 <div class="slick-multiItem">
                                     <!-- DB -->
-                                    <div class="slide-it">
-                                        <div class="movie-item">
-                                            <div class="mv-img">
-                                                <img src="images/uploads/mv-item5.jpg" alt="" width="185" height="284">
-                                            </div>
-                                            <div class="hvr-inner">
-                                                <a href="#"> Read more <i class="ion-android-arrow-dropright"></i></a>
-                                            </div>
-                                            <div class="title-in">
-                                                <h6><a href="#">The Revenant</a></h6>
-                                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                    {% for movie in theater_movies %}
+                                        {% if movie.type == "coming" %}
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="images/uploads/mv-item5.jpg" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="{{ movie.anchor_url }}"> Read more <i class="ion-android-arrow-dropright"></i></a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">{{ movie.movie_title }}</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>{{ movie.lower_rating }}</span> /{{ movie.upper_rating }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        {% endif %}
+                                    {% empty %}
+                                    <p>No upcoming movies available.</p>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -76,21 +92,26 @@
                         <div id="tab21" class="tab">
                             <div class="row">
                                 <div class="slick-multiItem">
-                                    <!-- DB -->
-                                    <div class="slide-it">
-                                        <div class="movie-item">
-                                            <div class="mv-img">
-                                                <img src="images/uploads/mv-item3.jpg" alt="" width="185" height="284">
-                                            </div>
-                                            <div class="hvr-inner">
-                                                <a href="#"> Read more <i class="ion-android-arrow-dropright"></i></a>
-                                            </div>
-                                            <div class="title-in">
-                                                <h6><a href="#">Die Hard</a></h6>
-                                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                    {% for movie in tv_movies %}
+                                        {% if movie.type == "popular" %}
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{{ movie.img_src }}" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="{{ movie.anchor_url }}"> Read more <i class="ion-android-arrow-dropright"></i></a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">{{ movie.movie_title }}</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>{{ movie.lower_rating }}</span> /{{ movie.upper_rating }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        {% endif %}
+                                    {% empty %}
+                                    <p>No TV popular content available.</p>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -98,21 +119,26 @@
                         <div id="tab22" class="tab active">
                             <div class="row">
                                 <div class="slick-multiItem">
-                                    <!-- DB -->
-                                    <div class="slide-it">
-                                        <div class="movie-item">
-                                            <div class="mv-img">
-                                                <img src="images/uploads/mv-item4.jpg" alt="" width="185" height="284">
-                                            </div>
-                                            <div class="hvr-inner">
-                                                <a href="#"> Read more <i class="ion-android-arrow-dropright"></i></a>
-                                            </div>
-                                            <div class="title-in">
-                                                <h6><a href="#">The Walk</a></h6>
-                                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                                    {% for movie in tv_movies %}
+                                        {% if movie.type == "coming" %}
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <img src="{{ movie.img_src }}" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="{{ movie.anchor_url }}"> Read more <i class="ion-android-arrow-dropright"></i></a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="#">{{ movie.movie_title }}</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>{{ movie.lower_rating }}</span> /{{ movie.upper_rating }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        {% endif %}
+                                    {% empty %}
+                                    <p>No upcoming TV content available.</p>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -135,38 +161,21 @@
                     <div class="celebrities">
                         <h4 class="sb-title">Spotlight Celebrities</h4>
 
-                        <!-- DB -->
+                        {% for celeb in celebrities %}
                         <div class="celeb-item">
-                            <a href="#"><img src="images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
+                            <a href="{{ celeb.anchor_url }}"><img src="{{ celeb.celebrity_url }}" alt="" width="{{ celeb.img_width }}" height="{{ celeb.img_height }}"></a>
                             <div class="celeb-author">
-                                <h6><a href="#">Samuel N. Jack</a></h6>
-                                <span>Actor</span>
+                                <h6><a href="#">{{ celeb.celebrity_name }}</a></h6>
+                                <span>{{ celeb.celebrity_type }}</span>
                             </div>
                         </div>
-
-                        <div class="celeb-item">
-                            <a href="#"><img src="images/uploads/ava2.jpg" alt="" width="70" height="70"></a>
-                            <div class="celeb-author">
-                                <h6><a href="#">Benjamin Carroll</a></h6>
-                                <span>Actor</span>
-                            </div>
-                        </div>
-
-                        <div class="celeb-item">
-                            <a href="#"><img src="images/uploads/ava3.jpg" alt="" width="70" height="70"></a>
-                            <div class="celeb-author">
-                                <h6><a href="#">Beverly Griffin</a></h6>
-                                <span>Actor</span>
-                            </div>
-                        </div>
-
-                        <div class="celeb-item">
-                            <a href="#"><img src="images/uploads/ava4.jpg" alt="" width="70" height="70"></a>
-                            <div class="celeb-author">
-                                <h6><a href="#">Justin Weaver</a></h6>
-                                <span>Actor</span>
-                            </div>
-                        </div>
+                        {% empty %}
+                        <p>No celebrities available.</p>
+                        {% endfor %}
+                        <a href="#" class="btn">
+                            See all celebrities <i class="ion-ios-arrow-right"></i>
+                        </a>
+                    </div>
 
                         <a href="#" class="btn">See all celebrities<i class="ion-ios-arrow-right"></i></a>
                     </div>
@@ -176,3 +185,4 @@
         </div>
     </div>
 </div>
+{% endblock %}
