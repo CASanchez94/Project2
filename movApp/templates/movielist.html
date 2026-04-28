@@ -1,7 +1,3 @@
-{% extends "base.html" %}
-
-
-{% block content %}
 <div class="movie-items">
     <div class="container">
         <div class="row ipad-width">
@@ -27,10 +23,10 @@
                                         <div class="slide-it">
                                             <div class="movie-item">
                                                 <div class="mv-img">
-                                                    <img src="images/uploads/mv-item1.jpg" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+                                                    <img src="{{ movie.img_src }}" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
                                                 </div>
                                                 <div class="hvr-inner">
-                                                    <a href="#"> Read more <i class="ion-android-arrow-dropright"></i></a>
+                                                    <a href="/static/moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i></a>
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">{{ movie.movie_title }}</a></h6>
@@ -56,10 +52,10 @@
                                         <div class="slide-it">
                                             <div class="movie-item">
                                                 <div class="mv-img">
-                                                    <img src="images/uploads/mv-item5.jpg" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+                                                    <img src="{{ movie.img_src }}" alt="" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
                                                 </div>
                                                 <div class="hvr-inner">
-                                                    <a href="{{ movie.anchor_url }}"> Read more <i class="ion-android-arrow-dropright"></i></a>
+                                                    <a href="/static/moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i></a>
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">{{ movie.movie_title }}</a></h6>
@@ -185,4 +181,3 @@
         </div>
     </div>
 </div>
-{% endblock %}
