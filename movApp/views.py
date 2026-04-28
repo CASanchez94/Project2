@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Slider, Advertisment, SocialLink, Trailer, TrailerItem, Celebrity, News, Tweet, MovieTheater, MovieTV
+from django.contrib import messages
+from django.shortcuts import redirect, render
+from .models import Slider, Advertisment, SocialLink, Trailer, TrailerItem, Celebrity, News, Tweet, MovieTheater, MovieTV, NewsletterSubscriber
 
 
 def index(request):
@@ -29,3 +30,18 @@ def movielist(request):
         "celebrities": Celebrity.objects.all(),
     }
     return render(request, "movielist.html", context)
+
+def subscribe_newsletter(request):
+    if request.method == "POST":
+        email = request.POST.get("email", "").strip()
+
+        if email:
+            subscriber, created = NewsletterSubscriber.objects.get_or_create(email=email)
+            if created:
+                messages.success(request, "Thanks for subscribing.")
+            else:
+                messages.info(request, "That email is already subscribed.")
+        else:
+            messages.error(request, "Please enter an email address.")
+
+    return redirect(request.META.get("HTTP_REFERER", "home"))
