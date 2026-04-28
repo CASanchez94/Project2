@@ -8201,12 +8201,19 @@ footer .flex-parent-ft .flex-child-ft ul li a {
 footer .flex-parent-ft .flex-child-ft ul li a:hover {
   color: #dcf836;
 }
-footer .flex-parent-ft .flex-child-ft a.btn {
+footer .flex-parent-ft .flex-child-ft a.btn,
+footer .flex-parent-ft .flex-child-ft button.btn {
   font-family: 'Dosis', sans-serif;
   font-size: 14px;
   color: #dd003f;
   font-weight: bold;
   text-transform: uppercase;
+  display: inline-block;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 20px;
 }
 footer .flex-parent-ft .flex-child-ft form {
   margin-bottom: 20px;
