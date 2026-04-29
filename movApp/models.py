@@ -68,12 +68,13 @@ class Celebrity(models.Model):
 
 class News(models.Model):
     section = models.CharField(max_length=20)
-    img_src = models.CharField(max_length=200)
-    img_alt = models.CharField(max_length=100)
-    img_width = models.IntegerField()
-    img_height = models.IntegerField()
+    img_src = models.ImageField(upload_to="news/", blank=True, null=True)
+    img_alt = models.CharField(max_length=100, blank=True, null=True)
+    img_width = models.IntegerField(blank=True, null=True)
+    img_height = models.IntegerField(blank=True, null=True)
+
     title = models.CharField(max_length=100)
-    content = models.CharField(max_length=500)
+    content = models.TextField(blank=True)  # allow empty for "more news"
     time = models.CharField(max_length=20)
 
     def __str__(self):

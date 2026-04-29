@@ -46,7 +46,7 @@
                         <div id="tab2" class="tab">
                             <div class="row">
                                 <div class="slick-multiItem">
-                                    <!-- DB -->
+                    
                                     {% for movie in theater_movies %}
                                         {% if movie.type == "coming" %}
                                         <div class="slide-it">
@@ -145,7 +145,7 @@
             <div class="col-md-4">
                 <div class="sidebar">
                     <div class="ads">
-                        <!-- DB -->
+
                         {% if sidebar_ad %}
                         <img src="{{ sidebar_ad.img_src.url }}"
                              alt="advertisement"
