@@ -25,17 +25,12 @@ def index(request):
         "tv_movies": MovieTV.objects.all(),
         "news_list": news_list,
         "tweets": tweets,
+        "theater_movies": MovieTheater.objects.all(),
+        "tv_movies": MovieTV.objects.all(),
 
     }
     return render(request, "index.html", context)
 
-def movielist(request):
-    context = {
-        "theater_movies": MovieTheater.objects.all(),
-        "tv_movies": MovieTV.objects.all(),
-        "celebrities": Celebrity.objects.all(),
-    }
-    return render(request, "movielist.html", context)
 
 def subscribe_newsletter(request):
     if request.method == "POST":
