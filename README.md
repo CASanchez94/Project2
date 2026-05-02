@@ -39,7 +39,7 @@ http://127.0.0.1:8000/admin
 | Field    | Value   |
 |----------|---------|
 | Username | admin   |
-| Password | admin   |
+| Password | password   |
 
 ---
 
