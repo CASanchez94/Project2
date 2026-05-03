@@ -46,3 +46,6 @@ def subscribe_newsletter(request):
             messages.error(request, "Please enter an email address.")
 
     return redirect(request.META.get("HTTP_REFERER", "home"))
+
+def movie_single(request):
+    return render(request, "moviesingle.html")
